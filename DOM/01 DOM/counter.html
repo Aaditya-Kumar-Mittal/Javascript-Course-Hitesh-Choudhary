@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: grey;
+        }
+
+        .main {
+            border: 5px solid white;
+            width: 400px;
+            height: 400px;
+            margin: 25% auto;
+            text-align: center;
+        }
+
+        h1 {
+            color: white;
+            font-size: 50px;
+        }
+
+        span {
+            color: rgb(45, 250, 26);
+        }
+
+        h2 {
+            font-size: 80px;
+            color: yellow;
+        }
+
+        .completed {
+            font-size: 40px;
+            color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h1>{ <span>Counter </span> }</h1>
+
+        <h2 class="counter"></h2>
+
+        <h2 class="completed"></h2>
+    </div>
+
+
+
+    <script>
+        var counter = document.querySelector(".counter");
+        const completed = document.querySelector(".completed");
+
+        var count = 0;
+
+        counter.innerText = count;
+
+        var counterFunction = setInterval(() => {
+            if (count < 10) {
+                count++;
+                counter.innerText = count;
+            }
+            if (count === 10) {
+                clearInterval(counterFunction);
+                completed.innerText = "Completed Counter!";
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>

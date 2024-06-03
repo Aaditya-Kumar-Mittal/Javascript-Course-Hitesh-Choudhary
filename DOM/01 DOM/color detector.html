@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Detector</title>
+
+    <style>
+        body {
+            background-color: grey;
+        }
+
+        .main {
+            border: 10px solid white;
+            height: 250px;
+            margin: 60px auto;
+            width: 90%;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .color {
+            width: 150px;
+            height: 150px;
+            border-radius: 25px;
+            margin: 20px;
+        }
+
+        .hover:hover {
+            opacity: 0.7;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .orange {
+            background-color: orange;
+        }
+
+        .purple {
+            background-color: purple;
+        }
+
+        .pink {
+            background-color: rgb(238, 24, 202);
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .feedback {
+            border: 10px solid white;
+            color: white;
+            text-align: center;
+            width: 300px;
+            margin: 50px auto;
+            font-size: 40px;
+            font-weight: bold;
+            border-radius: 25px;
+            padding: 15px;
+        }
+
+        .center {
+            width: 150px;
+            height: 150px;
+            /* background-color: white; */
+            margin: auto;
+            border-radius: 50%;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="center"></div>
+    <div class="main">
+        <div class="color red hover"></div>
+        <div class="color blue hover"></div>
+        <div class="color green hover"></div>
+        <div class="color orange hover"></div>
+        <div class="color purple hover"></div>
+        <div class="color pink hover"></div>
+        <div class="color yellow hover"></div>
+    </div>
+
+    <div class="feedback">
+        Hello
+    </div>
+
+
+
+    <script>
+        const feedback = document.querySelector(".feedback");
+        const colors = document.querySelectorAll(".color");
+        const center = document.querySelector(".center");
+
+        colors.forEach(color => {
+            color.addEventListener("mouseenter", function () {
+                const bgColor = window.getComputedStyle(this).backgroundColor;
+                feedback.innerText = bgColor;
+                feedback.style.color = bgColor;
+                center.style.backgroundColor = bgColor;
+            });
+        });
+    </script>
+</body>
+
+</html>
